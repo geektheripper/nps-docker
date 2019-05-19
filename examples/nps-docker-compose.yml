@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nps_server:
+    image: geektr/nps
+    environment:
+      - PUBLIC_VKEY=abcdefghijklmnop
+      - WEB_USERNAME=geektr
+      - WEB_PASSWORD=password
+      - AUTH_CRYPT_KEY=abcdefghijklmnop
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./nps.conf:/etc/nps-docker/nps.conf:ro

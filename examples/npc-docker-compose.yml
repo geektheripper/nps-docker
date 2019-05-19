@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web_server:
+    image: nginx
+    container_name: web_server
+    expose:
+      - "80"
+      - "443"
+  nps_client:
+    image: geektr/nps
+    environment:
+      - NPS_SERVER=aika.geektr.co:8024
+      - NPS_VKEY=xxxxxxxxxxxxxxxx
+    restart: always
