@@ -21,9 +21,9 @@ tail_log() {
 }
 
 run_nps() {
-  case $NPC_MODE in
+  case $NPS_MODE in
     npc|nps-client)
-      npc start -c $npc_config
+      npc -config $npc_config
       return 0
       ;;
     nps|nps-server)
@@ -44,8 +44,8 @@ run_nps() {
           return 1
         fi
       fi
-      echo "\$NPC_MODE not set, run as existed config file"
-      [ -f $npc_config_source ] && npc start -c $npc_config
+      echo "\$NPS_MODE not set, run as existed config file"
+      [ -f $npc_config_source ] && npc -config $npc_config
       [ -f $nps_config_source ] && nps start && tail_log
       return 0
       ;;
